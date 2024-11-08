@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { Link } from "react-router-dom";
 import {
   Popover,
   PopoverContent,
@@ -59,16 +58,16 @@ const Header = () => {
               Home
             </Button>
           </a>
-          <Link to= "/create-trip">
+          <a href = "/create-trip">
             <Button variant="outline" className="rounded-full">
               Create a tour
             </Button>
-          </Link>
-          <Link to= "/my-trip">
+          </a>
+          <a href = "/my-trip">
             <Button variant="outline" className="rounded-full">
               My Trips
             </Button>
-          </Link>
+          </a>
           <Popover>
             <PopoverTrigger>
               <img className="h-10 w-10 rounded-full" src={user?.picture} />
