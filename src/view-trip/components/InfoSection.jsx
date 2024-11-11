@@ -1,9 +1,6 @@
 import { GetPlaceDetails } from "@/service/GlobalApi";
 import React, { useEffect, useState } from "react";
-
-const PHOTO_REF_URL =
-  "https://places.googleapis.com/v1/{NAME}/media?maxHeightPx=600&maxWidthPx=600&key=" +
-  import.meta.env.VITE_GOOGLE_PLACE_API_KEY;
+import { PHOTO_REF_URL } from "@/constants/options";
 const PLACE_URL = "https://www.google.com/maps/search/?api=1&query=";
 
 const InfoSection = ({ trip }) => {
