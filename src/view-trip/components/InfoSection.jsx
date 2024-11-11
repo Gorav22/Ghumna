@@ -4,8 +4,11 @@ import React, { useEffect, useState } from "react";
 const PHOTO_REF_URL =
   "https://places.googleapis.com/v1/{NAME}/media?maxHeightPx=600&maxWidthPx=600&key=" +
   import.meta.env.VITE_GOOGLE_PLACE_API_KEY;
+const PLACE_URL = "https://www.google.com/maps/search/?api=1&query=";
+
 const InfoSection = ({ trip }) => {
   const [photoUrl, setPhotoUrl] = useState();
+  const [placeUrl, setPlaceUrl] = useState();
   useEffect(() => {
     trip && GetPlacePhoto();
   }, [trip]);
@@ -15,22 +18,27 @@ const InfoSection = ({ trip }) => {
       textQuery: trip?.userChoice?.location?.label,
     };
     const result = await GetPlaceDetails(data).then((resp) => {
-      console.log(resp.data.places[0].photos[3].name);
-
-      const PhotoUrl = PHOTO_REF_URL.replace(
-        "{NAME}",
-        resp.data.places[0].photos[3].name
-      );
+      const photoName = resp.data.places[0].photos[3].name;
+      const PhotoUrl = PHOTO_REF_URL.replace("{NAME}", photoName);
       setPhotoUrl(PhotoUrl);
+
+      const PlaceUrl = PLACE_URL + encodeURIComponent(trip?.userChoice?.location?.label);
+      setPlaceUrl(PlaceUrl);
     });
   };
+
   return (
     <div className="flex justify-between items-center mt-12 md:mx-16 lg:mx-48 p-6 rounded-lg shadow-lg">
-      <img
-        className="h-40 w-40 rounded-full object-cover"
-        src={photoUrl}
-        alt="Trip Image"
-      />
+      {placeUrl && (
+        <a href={placeUrl} target="_blank" rel="noopener noreferrer">
+          <img
+            className="h-40 w-40 rounded-full object-cover"
+            id="1"
+            src={photoUrl}
+            alt="Trip Image"
+          />
+        </a>
+      )}
       <div className="flex flex-col ml-6 items-end">
         <div className="text-4xl font-bold mb-2 flex items-center">
           🗺️ {trip?.userChoice?.location?.label}
