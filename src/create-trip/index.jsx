@@ -224,8 +224,7 @@ const CreateTrip = () => {
           {loading ? "Generating Trip..." : "Generate Trip"}
         </Button>
       </div>
-
-      {/* Sign In Dialog */}
+      
       <Dialog open={openDialog}>
         <DialogContent>
           <DialogHeader>
