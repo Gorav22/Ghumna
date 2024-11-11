@@ -13,7 +13,7 @@ const Itinerary = ({ trip }) => {
         {trip?.tripData?.itinerary.map((item, i) => (
           <div
             key={i}
-            className="itinerary-card p-4 bg-white rounded-lg shadow-lg"
+            className="itinerary-card text-center p-4 bg-white rounded-lg shadow-lg"
           >
             <h3 className="text-2xl font-semibold mb-4">{item?.day}</h3>
             <div className="space-y-6 space-x-3">

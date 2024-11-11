@@ -29,10 +29,10 @@ const UserTripCardItem = ({ trip }) => {
           className="object-cover rounded-xl mx-auto w-80 h-64"
           src={photoURL}
         />
-        <h2 className="font-bold text-lg">
+        <h2 className="font-bold text-center text-lg">
           {trip?.userChoice?.location?.label}
         </h2>
-        <h2 className="text-sm text-gray-500">
+        <h2 className="text-sm text-center text-gray-500">
           {trip?.userChoice?.noOfDays} days trip with "
           {trip?.userChoice?.budget}" budget.
         </h2>
