@@ -58,9 +58,6 @@ const CreateTrip = () => {
     }
     if(formData?.noOfDays<1){
       toast("Please enter the valid days you are planning");
-    }
-    if (formData?.noOfDays > 7) {
-      toast("Please enter no. of days less than 8");
       return;
     }
     if (
